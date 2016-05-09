@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "bitraf.bitraf"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    wearApp project(':wear')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.4', ext: 'jar'
+    compile group: 'com.netflix.rxjava', name: 'rxjava-core', version: '0.19.6', ext: 'jar'
+    compile group: 'com.netflix.rxjava', name: 'rxjava-android', version: '0.19.6', ext: 'jar'
+}

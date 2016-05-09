@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/card_default_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="bitraf.bitraf.MainActivity"
+    tools:deviceIds="wear_round">
+
+    <TextView
+        android:id="@+id/action"
+        android:layout_marginTop="52dp"
+        android:layout_marginLeft="40dp"
+        android:text="Action"
+        android:textColor="@color/card_grey_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/doing"
+        android:textColor="@color/card_text_color"
+        android:layout_below="@+id/action"
+        android:layout_alignLeft="@+id/action"
+        android:text="Unlocking bitraf's door"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.wearable.view.DelayedConfirmationView
+        android:layout_below="@+id/doing"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/delayed_confirm"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/no"
+        app:circle_color="@color/blue"
+        app:circle_radius_pressed="14dp"
+        app:circle_padding="2dp"
+        app:circle_border_color="@color/lightblue"
+        app:circle_border_width="12dp"
+        app:circle_radius="52dp">
+    </android.support.wearable.view.DelayedConfirmationView>
+
+</RelativeLayout>
