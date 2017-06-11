@@ -12,4 +12,10 @@
     <string name="geofence_transition_notification_text">transition notification</string>
     <string name="google_app_id">AIzaSyDiZavf6dvPrbIu12vUlzLmuePx4VDYEX8</string>
     <string name="geofence_explain">Enable an open door notification when you are nearby bitraf with geofencing, this is especially handy in combination with wearables</string>
+    <string name="username_hint">username</string>
+    <string name="password_hint">password</string>
+    <string name="opendoor_button">lukk opp døra!</string>
+    <string name="geofence_switch">enable bitraf geofence detection</string>
+    <string name="clear_explain">Your credentials are stored until you clear them</string>
+    <string name="clear_button">clear username/password</string>
 </resources>
