@@ -5,16 +5,16 @@
         If you do not have a username and password yet, see <a href="https://bitraf.no/wiki/D%C3%B8r%C3%A5pner">this</a> link on how to obtain one, or ask a friendly bitraffer.\n\n
 
         Once you have set username and password here, you should be able to open the door directly from your Android Wear, either with voice commands or by starting the app.</string>
-    <string name="geofence_transition_invalid_type">invalid type %i$1</string>
-    <string name="geofence_transition_entered">transition entered</string>
-    <string name="geofence_transition_exited">transition exited</string>
-    <string name="unknown_geofence_transition">unknown transition</string>
-    <string name="geofence_transition_notification_text">transition notification</string>
-    <string name="google_app_id">AIzaSyDiZavf6dvPrbIu12vUlzLmuePx4VDYEX8</string>
+    <string name="geofence_transition_invalid_type" translatable="false">invalid type %i$1</string>
+    <string name="geofence_transition_entered" translatable="false">transition entered</string>
+    <string name="geofence_transition_exited" translatable="false">transition exited</string>
+    <string name="unknown_geofence_transition" translatable="false">unknown transition</string>
+    <string name="geofence_transition_notification_text" translatable="false">transition notification</string>
+    <string name="google_app_id" translatable="false">AIzaSyDiZavf6dvPrbIu12vUlzLmuePx4VDYEX8</string>
     <string name="geofence_explain">Enable an open door notification when you are nearby bitraf with geofencing, this is especially handy in combination with wearables</string>
     <string name="username_hint">username</string>
     <string name="password_hint">password</string>
-    <string name="opendoor_button">lukk opp døra!</string>
+    <string name="opendoor_button">Open the door!</string>
     <string name="geofence_switch">enable bitraf geofence detection</string>
     <string name="clear_explain">Your credentials are stored until you clear them</string>
     <string name="clear_button">clear username/password</string>
