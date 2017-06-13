@@ -2,7 +2,7 @@
     <string name="app_name">Bitraf</string>
     <string name="welcome">Hello Welcome to bitraf.
         With the appropriate username and password combination, you are able to enter this magic realm of DIY and DIWF(Do it with friends) and maybe even make new friends in the process.\n\n
-        If you do not have a username and password yet, see this link on how to obtain one, or ask a friendly bitraffer.\n\n
+        If you do not have a username and password yet, see <a href="https://bitraf.no/wiki/D%C3%B8r%C3%A5pner">this</a> link on how to obtain one, or ask a friendly bitraffer.\n\n
 
         Once you have set username and password here, you should be able to open the door directly from your Android Wear, either with voice commands or by starting the app.</string>
     <string name="geofence_transition_invalid_type">invalid type %i$1</string>
