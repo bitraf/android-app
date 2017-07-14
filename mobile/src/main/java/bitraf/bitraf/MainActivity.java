@@ -12,12 +12,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import bitraf.bitraf.api.DoorRequestIntentService;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText username;
     private EditText passwd;
     private ProgressBar progress;
+    private TextView welcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
         setupUnlockButton();
         setupGeofenceSwitch();
         setupClearCredentialsButton();
+        setupActivateLink();
 
+    }
+
+    private void setupActivateLink(){
+        welcome.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private void setupClearCredentialsButton() {
@@ -121,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         passwd = (EditText) findViewById(R.id.passwd);
         progress = (ProgressBar) findViewById(R.id.progress);
+        welcome = (TextView) findViewById(R.id.welcome);
     }
 
     @NonNull

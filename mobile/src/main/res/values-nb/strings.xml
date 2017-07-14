@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bitraf</string>
+    <string name="clear_button">Fjern brukernavn/passord</string>
+    <string name="clear_explain">Brukernavn og passord blir lagret til du fjerner det</string>
+    <string name="geofence_explain">Aktiver et varsel når du er i nærheten av bitraf ved hjelp av geofencing. Dette er spesielt nyttig med \"wearables\"</string>
+    <string name="geofence_switch">Aktiver bitraf geofencing</string>
+    <string name="opendoor_button">lukk opp døra!</string>
+    <string name="password_hint">passord</string>
+    <string name="username_hint">brukernavn</string>
+    <string name="welcome">Hei og velkommen til bitraf.\nMed et gyldig brukernavn og passord kan du få tilgang til en magiske verden med DIY (Do it yourself) og DIWF (Do it with friends) og kanskje få nye venner på veien.\n\nHvis du ikke har brukernavn og passord enda, gå til <a href="https://bitraf.no/wiki/D%C3%B8r%C3%A5pner">denne</a> siden for å se hvordan du skaffer deg det, eller spør en vennlig bitraffer.\n\nNår du har skrevet inn brukernavn og passord, kan du også åpne døren direkte fra Android Wear, enten stemmeaktivert, eller ved å åpne appen.</string>
+</resources>
