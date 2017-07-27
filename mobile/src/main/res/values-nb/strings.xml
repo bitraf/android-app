@@ -9,4 +9,9 @@
     <string name="password_hint">passord</string>
     <string name="username_hint">brukernavn</string>
     <string name="welcome">Hei og velkommen til bitraf.\nMed et gyldig brukernavn og passord kan du få tilgang til en magiske verden med DIY (Do it yourself) og DIWF (Do it with friends) og kanskje få nye venner på veien.\n\nHvis du ikke har brukernavn og passord enda, gå til <a href="https://bitraf.no/wiki/D%C3%B8r%C3%A5pner">denne</a> siden for å se hvordan du skaffer deg det, eller spør en vennlig bitraffer.\n\nNår du har skrevet inn brukernavn og passord, kan du også åpne døren direkte fra Android Wear, enten stemmeaktivert, eller ved å åpne appen.</string>
+    <string name="floor_3_opendoor_button">tredje etasje</string>
+    <string name="floor_4_opendoor_button">fjerde etasje</string>
+    <string name="frontnlab_opendoor_button">inngangsdør og lab</string>
+    <string name="doorlabel">Velg dør</string>
+    <string name="open_door">åpne %1$s</string>
 </resources>

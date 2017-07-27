@@ -10,6 +10,9 @@ public class Storage {
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
     public static final String GEOFENCE_ENABLED = "GEOFENCE_ENABLED";
+    public static final String SUCCESSFULL_CREDENTIALS = "SUCCESSFULL_CREDENTIALS ";
+
+
 
     public static void storePassword(String passw) {
         prefFile().edit().putString(PASSWORD,passw).commit();
@@ -30,6 +33,7 @@ public class Storage {
     public static void clearCredentials(){
         Storage.storeUsername("");
         Storage.storePassword("");
+        prefFile().edit().putBoolean(SUCCESSFULL_CREDENTIALS,false).commit();
     }
 
     public static boolean getIfGeofenceEnabled(){
@@ -42,5 +46,13 @@ public class Storage {
 
     private static SharedPreferences prefFile() {
         return BitApp.appContext.getSharedPreferences("credentials",0);
+    }
+
+    public static void storeHasSuccessfullCredentials() {
+        prefFile().edit().putBoolean(SUCCESSFULL_CREDENTIALS,true).commit();
+    }
+
+    public static boolean hasSuccessfullCredentials() {
+        return prefFile().getBoolean(SUCCESSFULL_CREDENTIALS,false);
     }
 }

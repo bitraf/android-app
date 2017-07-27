@@ -10,7 +10,11 @@
     <string name="geofence_explain">Enable an open door notification when you are nearby bitraf with geofencing, this is especially handy in combination with wearables</string>
     <string name="username_hint">username</string>
     <string name="password_hint">password</string>
-    <string name="opendoor_button">Open the door!</string>
+    <string name="doorlabel">Which door to open?</string>
+    <string name="frontnlab_opendoor_button">front/lab</string>
+    <string name="floor_3_opendoor_button">third floor</string>
+    <string name="floor_4_opendoor_button">fourth floor</string>
+    <string name="open_door">open %1$s</string>
     <string name="geofence_switch">enable bitraf geofence detection</string>
     <string name="clear_explain">Your credentials are stored until you clear them</string>
     <string name="clear_button">clear username/password</string>

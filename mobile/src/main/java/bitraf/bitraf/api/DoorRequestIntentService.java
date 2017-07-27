@@ -21,7 +21,9 @@ public class DoorRequestIntentService extends IntentService {
 
     Handler mMainThreadHandler = null;
 
-    public static String ACTION_UNLOCK = "bitraf.door.unlock";
+    public static String ACTION_UNLOCK_FRONTNLAB = "bitraf.door.unlock.frontnlab";
+    public static String ACTION_UNLOCK_F3 = "bitraf.door.unlock.f3";
+    public static String ACTION_UNLOCK_F4 = "bitraf.door.unlock.f4";
     public static String USERNAME_EXTRA = "USERNAME_EXTRA";
     public static String PASWD_EXTRA = "PASWD_EXTRA";
     public static String HTML_EXTRA = "HTML_EXTRA";
@@ -40,9 +42,20 @@ public class DoorRequestIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        if(ACTION_UNLOCK.equals(intent.getAction())){
+        if(     ACTION_UNLOCK_FRONTNLAB.equals(intent.getAction()) ||
+                ACTION_UNLOCK_F3.equals(intent.getAction()) ||
+                ACTION_UNLOCK_F4.equals(intent.getAction())){
             try {
-                DoorRequest.DoorResponseData data = DoorRequest.unlock(intent.getStringExtra(USERNAME_EXTRA),intent.getStringExtra(PASWD_EXTRA));
+                int whichDoor = DoorRequest.DOOR_FRONTNLAB;
+                if(ACTION_UNLOCK_F3.equals(intent.getAction())){
+                 whichDoor = DoorRequest.DOOR_THIRD_FLOOR;
+                }
+                if(ACTION_UNLOCK_F4.equals(intent.getAction())){
+                    whichDoor = DoorRequest.DOOR_FOURTH_FLOOR;
+                }
+                DoorRequest.DoorResponseData data = DoorRequest.unlock(intent.getStringExtra(USERNAME_EXTRA),
+                                                                       intent.getStringExtra(PASWD_EXTRA),
+                                                                       whichDoor);
                 if(data.isSuccess()){
                     if(!LocalBroadcastManager.getInstance(this).sendBroadcast(createSuccessIntent(data.getHtml()))){
                         toastIt("access granted");

@@ -22,6 +22,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import bitraf.bitraf.api.DoorRequest;
 import bitraf.bitraf.api.DoorRequestIntentService;
 import bitraf.bitraf.geofence.RegisterBitrafGeoFenceIntentService;
 
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_FINE_LOCATION_PERMISSION_CODE = 1;
     private BroadcastReceiver broRec = createUnlockedBroReceiver();
     private Switch geofenceSwitch;
-    private Button unlockButton;
+    private Button unlockFrontnLabButton;
+    private Button unlock3FloorButton;
+    private Button unlock4FloorButton;
     private Button clearCredentialsButton;
     private EditText username;
     private EditText passwd;
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViews();
         fillInputFieldsWithStoredCredentials();
-        setupUnlockButton();
+        setupUnlockButtons();
         setupGeofenceSwitch();
         setupClearCredentialsButton();
         setupActivateLink();
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Storage.clearCredentials();
                 fillInputFieldsWithStoredCredentials();
+                showLoginUI();
 
             }
         });
@@ -86,21 +90,39 @@ public class MainActivity extends AppCompatActivity {
         geofenceSwitch.setChecked(Storage.getIfGeofenceEnabled());
     }
 
-    private void setupUnlockButton() {
-        unlockButton.setOnClickListener(new View.OnClickListener() {
+    private void setupUnlockButtons() {
+        unlockFrontnLabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showProgress();
                 Storage.storeUsername(getUsername());
                 Storage.storePassword(getPasswd());
-                requestUnlocking();
+                requestUnlocking(DoorRequestIntentService.ACTION_UNLOCK_FRONTNLAB);
+            }
+        });
+        unlock3FloorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showProgress();
+                Storage.storeUsername(getUsername());
+                Storage.storePassword(getPasswd());
+                requestUnlocking(DoorRequestIntentService.ACTION_UNLOCK_F3);
+            }
+        });
+        unlock4FloorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showProgress();
+                Storage.storeUsername(getUsername());
+                Storage.storePassword(getPasswd());
+                requestUnlocking(DoorRequestIntentService.ACTION_UNLOCK_F4);
             }
         });
     }
 
-    private void requestUnlocking() {
+    private void requestUnlocking(final String unlockAction) {
         Intent unlock = new Intent(getApplicationContext(), DoorRequestIntentService.class);
-        unlock.setAction(DoorRequestIntentService.ACTION_UNLOCK);
+        unlock.setAction(unlockAction);
         unlock.putExtra(DoorRequestIntentService.USERNAME_EXTRA, getUsername());
         unlock.putExtra(DoorRequestIntentService.PASWD_EXTRA, getPasswd());
         startService(unlock);
@@ -124,7 +146,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViews() {
         geofenceSwitch = (Switch) findViewById(R.id.geofenceSwitch);
-        unlockButton = (Button) findViewById(R.id.openDoorButton);
+        unlockFrontnLabButton = (Button) findViewById(R.id.openDoorButtonFront);
+        unlock3FloorButton = (Button) findViewById(R.id.openDoorButtonThirdFloor);
+        unlock4FloorButton = (Button) findViewById(R.id.openDoorButtonFourthFloor);
         clearCredentialsButton = (Button) findViewById(R.id.clearCredentialsButton);
         username = (EditText) findViewById(R.id.username);
         passwd = (EditText) findViewById(R.id.passwd);
@@ -138,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if(DoorRequestIntentService.RESPONSE_UNLOCK_SUCCESS.equals(intent.getAction())){
+                    Storage.storeHasSuccessfullCredentials();
                     showLoginUI();
                     Toast.makeText(getApplicationContext(),"Unlocked door JA",Toast.LENGTH_SHORT).show();
                 }
@@ -177,7 +202,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showProgress() {
-        unlockButton.setVisibility(View.GONE);
+        unlockFrontnLabButton.setVisibility(View.GONE);
+        unlock3FloorButton.setVisibility(View.GONE);
+        unlock4FloorButton.setVisibility(View.GONE);
         username.setVisibility(View.GONE);
         passwd.setVisibility(View.GONE);
         progress.setVisibility(View.VISIBLE);
@@ -194,7 +221,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showLoginUI() {
-        unlockButton.setVisibility(View.VISIBLE);
+        if(Storage.hasSuccessfullCredentials()){
+            welcome.setVisibility(View.GONE);
+        }
+        unlockFrontnLabButton.setVisibility(View.VISIBLE);
+        unlock3FloorButton.setVisibility(View.VISIBLE);
+        unlock4FloorButton.setVisibility(View.VISIBLE);
         username.setVisibility(View.VISIBLE);
         passwd.setVisibility(View.VISIBLE);
         progress.setVisibility(View.GONE);
