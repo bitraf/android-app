@@ -14,4 +14,7 @@
     <string name="frontnlab_opendoor_button">inngangsdør og lab</string>
     <string name="doorlabel">Velg dør</string>
     <string name="open_door">åpne %1$s</string>
+    <string-array name="android_wear_capabilities">
+        <item>unlock_bitraf_door</item>
+    </string-array>
 </resources>

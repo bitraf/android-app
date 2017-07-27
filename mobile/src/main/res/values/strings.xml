@@ -18,4 +18,5 @@
     <string name="geofence_switch">enable bitraf geofence detection</string>
     <string name="clear_explain">Your credentials are stored until you clear them</string>
     <string name="clear_button">clear username/password</string>
+    <string name="opendoor_button">openButton</string>
 </resources>
